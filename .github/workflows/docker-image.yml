@@ -18,7 +18,7 @@ jobs:
       with:
         registry: docker.io
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_PASSWORD }}
+        password: ${{ secrets.DOCKERIO_TOKEN }}
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag hi5san/qnotebook:latest
