@@ -13,6 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Login to registry
+      uses: docker/login-action@v3
+      with:
+        registry: docker.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_PASSWORD }}
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag hi5san/qnotebook:latest
