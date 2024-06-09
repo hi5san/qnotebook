@@ -1,0 +1,16 @@
+version: '3'
+services:
+  qnotebook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hi5san/qnotebook:latest
+    container_name: qnotebook
+    ports:
+      - 8888:8888
+    environment:
+      - TZ=Asia/Tokyo
+    labels:
+      - qnotebook
+    volumes:
+      - $PWD/qiskit:/qiskit
