@@ -1,13 +1,30 @@
-# Simple Qiskit start container kit
+# Simple Qiskit start jupyter lab container kit
+[Link to github](.)
+
 ## Run container (using container image on dockerhub)
+### Clone and use docker-compose
+Ref: [docker-compose.yml](./docker-compose.yml)
 ```
+git clone https://github.com/hi5san/qnotebook
 docker-compose up
 ```
 
-Or:
+### Or directly pull using docker command
 ```
-docker run -it --rm --privileged -v $(pwd)/qiskit:/qiskit -p 8888:8888 hi5san/qnotebook
+docker run -it --rm --privileged -v $(pwd)/qiskit:/qiskit -p 8888:8888 --name qnotebook hi5san/qnotebook
 ```
+
+## Access jupyter lab
+Access one of the URLs of your choice given in container output.
+
+Example output:
+```
+   To access the server, open this file in a browser:
+        file:///root/.local/share/jupyter/runtime/jpserver-1-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/lab?token=<SNIP>
+        http://127.0.0.1:8888/lab?token=<SNIP>
+```     
 
 ## Remove container
 Ctrl-C to stop container and then remove it accordingly.

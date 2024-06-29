@@ -24,3 +24,11 @@ jobs:
       run: docker build . --file Dockerfile --tag hi5san/qnotebook:latest
     - name: Push the Docker image
       run: docker push hi5san/qnotebook:latest
+    - name: Update repo description
+      uses: peter-evans/dockerhub-description@e98e4d1628a5f3be2be7c231e50981aee98723ae # v4.0.0
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.DOCKERIO_TOKEN }}
+        repository: hi5san/qnotebook
+        short-description: Simple Qiskit start jupyter lab container kit
+        enable-url-completion: true
